@@ -1,12 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Chat Colaborativo</title>
+    <meta charset="UTF-8">
+    <title>Chat Colaborativo - TEAMSHAT</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Google Sign-In Library -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
-<div class="chat-board">
-    <h1>TEAMSHAT</h1>
+
+<!-- Pantalla de Login -->
+<div id="login-screen" class="login-screen">
+    <div class="login-box">
+        <h1>🔐 TEAMSHAT</h1>
+        <p>Chat Colaborativo en Tiempo Real</p>
+        <p class="subtitle">Inicia sesión con tu cuenta de Google</p>
+        
+        <!-- Botón de Google Sign-In -->
+        <div id="g_id_onload"
+             data-client_id="79659677490-tv052sbvs8u7ela04hur83sh08qrrm02.apps.googleusercontent.com"
+             data-callback="handleCredentialResponse"
+             data-auto_prompt="false">
+        </div>
+        <div class="g_id_signin" 
+             data-type="standard"
+             data-size="large"
+             data-theme="outline"
+             data-text="sign_in_with"
+             data-shape="rectangular"
+             data-logo_alignment="left">
+        </div>
+    </div>
+</div>
+
+<!-- Chat (oculto hasta logearse) -->
+<div id="chat-app" class="chat-board hidden">
+    <div class="header-info">
+        <h1>TEAMSHAT</h1>
+        <div class="user-info">
+            <span id="user-name"></span>
+            <button id="logoutButton" title="Cerrar sesión">🚪 Salir</button>
+        </div>
+    </div>
 
     <div class="chat-main">
         <div id="chat-container">
@@ -28,7 +63,7 @@
     </div>
 </div>
 
-<!-- Emoji Picker -->
+<!-- Emojis -->
 <div id="emojiPicker" class="emoji-picker hidden">
     <span class="emoji">😀</span>
     <span class="emoji">😂</span>
